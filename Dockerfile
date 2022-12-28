@@ -16,10 +16,10 @@ RUN chown elasticsearch:elasticsearch start.sh
 USER elasticsearch
 
 # API KEY and password
-RUN --mount=type=secret,id=API_KEY,mode=0444,required=true
+RUN --mount=type=secret,id=API_KEY,mode=0444,required=false
 ARG API_KEY=$(cat /run/secrets/API_KEY)
 
-RUN --mount=type=secret,id=PASSWORD,mode=0444,required=true
+RUN --mount=type=secret,id=PASSWORD,mode=0444,required=false
 ARG PASSWORD=$(cat /run/secrets/PASSWORD)
 
 RUN echo $PASSWORD
