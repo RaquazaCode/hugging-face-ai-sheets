@@ -22,8 +22,6 @@ ARG API_KEY=$(cat /run/secrets/API_KEY)
 RUN --mount=type=secret,id=PASSWORD,mode=0444,required=false
 ARG PASSWORD=$(cat /run/secrets/PASSWORD)
 
-RUN echo $PASSWORD
-
 # Install Python deps
 RUN pip3 install -U -r requirements.txt
 
