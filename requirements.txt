@@ -1,2 +1,0 @@
-argilla[server]
-fastapi
