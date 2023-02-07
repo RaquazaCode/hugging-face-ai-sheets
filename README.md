@@ -4,7 +4,6 @@ emoji: 🏷️
 colorFrom: purple
 colorTo: red
 sdk: docker
-pinned: true
 app_port: 6900
 fullWidth: true
 tags:
