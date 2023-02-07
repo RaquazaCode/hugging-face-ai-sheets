@@ -1,5 +1,5 @@
 ---
-title: Argilla Space Template (duplicate me!)
+title: Argilla Space Template
 emoji: 🏷️
 colorFrom: purple
 colorTo: red
