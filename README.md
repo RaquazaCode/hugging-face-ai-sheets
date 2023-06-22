@@ -6,6 +6,7 @@ colorTo: red
 sdk: docker
 app_port: 6900
 fullWidth: true
+suggested_storage: small
 tags:
   - argilla
 ---
