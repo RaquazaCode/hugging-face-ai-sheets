@@ -15,4 +15,4 @@ This is the Argilla Space Template you can use to deploy and run your own instan
 Login with:
 
 user: argilla
-password: 1234
+password: 12345678
