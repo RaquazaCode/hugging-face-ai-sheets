@@ -1,4 +1,4 @@
-FROM argilla/argilla-quickstart:v1.16.0
+FROM argilla/argilla-quickstart:v1.17.0
 
 
 # Define datasets to preload: full=all datasets, single=one dataset, and none=no datasets.
@@ -17,4 +17,4 @@ ENV LOAD_DATASETS=single
 #
 #ENV ARGILLA_WORKSPACE="team"
 
-CMD /start_quickstart_argilla.sh
+CMD ["/bin/bash", "start_quickstart_argilla.sh"]
