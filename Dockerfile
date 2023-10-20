@@ -1,8 +1,8 @@
-FROM argilla/argilla-quickstart:v1.17.0
+FROM argilla/argilla-quickstart:develop
 
 
 # Define datasets to preload: full=all datasets, single=one dataset, and none=no datasets.
-ENV LOAD_DATASETS=single
+ENV LOAD_DATASETS=all
 
 # Uncomment the next section to keep backward compatibility with previous versions
 ## Following variables are used for backward compatibility with the previous security setup for the quickstart image
