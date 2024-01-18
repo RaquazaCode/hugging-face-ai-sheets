@@ -1,4 +1,4 @@
-FROM argilla/argilla-quickstart:v1.21.0
+FROM argilla/argilla-quickstart:v1.22.0
 
 
 # Define datasets to preload: full=all datasets, single=one dataset, and none=no datasets.
