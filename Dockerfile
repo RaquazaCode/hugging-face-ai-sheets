@@ -16,5 +16,6 @@ ENV LOAD_DATASETS=none
 #ENV ANNOTATOR_PASSWORD=12345678
 #
 #ENV ARGILLA_WORKSPACE="team"
+#ENV OAUTH_ID=""
 
 CMD ["/bin/bash", "start_quickstart_argilla.sh"]
