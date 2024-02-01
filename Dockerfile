@@ -3,6 +3,7 @@ FROM argilla/argilla-quickstart:v1.22.0
 
 # Define datasets to preload: full=all datasets, single=one dataset, and none=no datasets.
 ENV LOAD_DATASETS=none
+ENV OAUTH_ID=""
 
 # Uncomment the next section to keep backward compatibility with previous versions
 ## Following variables are used for backward compatibility with the previous security setup for the quickstart image
@@ -16,6 +17,6 @@ ENV LOAD_DATASETS=none
 #ENV ANNOTATOR_PASSWORD=12345678
 #
 #ENV ARGILLA_WORKSPACE="team"
-#ENV OAUTH_ID=""
+#
 
 CMD ["/bin/bash", "start_quickstart_argilla.sh"]
