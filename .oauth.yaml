@@ -1,5 +1,5 @@
 # Change to `true` to enable HF auth integration
-enabled: true
+enabled: false
 
 providers:
   - name: huggingface
