@@ -1,5 +1,7 @@
-FROM argilla/argilla-quickstart:v1.22.0
+FROM argilla/argilla-quickstart:v1.23.0
 
+# Copy the auth config section
+COPY .oauth.yaml /home/argilla/
 
 # Define datasets to preload: full=all datasets, single=one dataset, and none=no datasets.
 ENV LOAD_DATASETS=none
