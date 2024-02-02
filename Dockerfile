@@ -1,4 +1,4 @@
-FROM argilla/argilla-quickstart:main
+FROM argilla/argilla-quickstart:v1.23.0
 
 # Copy the auth config section
 COPY .oauth.yaml /home/argilla/
