@@ -1,4 +1,4 @@
-FROM argilla/argilla-quickstart:v1.23.1
+FROM argilla/argilla-quickstart:v1.25.0
 
 # Copy the auth config section
 COPY .oauth.yaml /home/argilla/
@@ -20,5 +20,8 @@ ENV OAUTH_ID=""
 #
 #ENV ARGILLA_WORKSPACE="team"
 #
+
+# Uncomment the next line if a new version of Argilla requires a dataset search reindex.
+# ENV REINDEX_DATASETS=true
 
 CMD ["/bin/bash", "start_quickstart_argilla.sh"]
