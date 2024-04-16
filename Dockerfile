@@ -23,5 +23,3 @@ ENV OAUTH_ID=""
 
 # Uncomment the next line if a new version of Argilla requires a dataset search reindex.
 # ENV REINDEX_DATASETS=true
-
-CMD ["/bin/bash", "start_quickstart_argilla.sh"]
