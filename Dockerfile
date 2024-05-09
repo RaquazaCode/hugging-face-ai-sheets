@@ -21,5 +21,5 @@ ENV OAUTH_ID=""
 # Uncomment the next line if a new version of Argilla requires a dataset search reindex.
 # ENV REINDEX_DATASETS=true
 
-# (since: v1.28.0) Uncomment the next line to force not showing warning message about Hugging Face Space persistant storage not enabled.
-# ENV ARGILLA_SHOW_HUGGINGFACE_SPACE_PERSISTANT_STORAGE_WARNING=false
+# (since: v1.28.0) Uncomment the next line to force not showing warning message about Hugging Face Space persistent storage not enabled.
+# ENV ARGILLA_SHOW_HUGGINGFACE_SPACE_PERSISTENT_STORAGE_WARNING=false
