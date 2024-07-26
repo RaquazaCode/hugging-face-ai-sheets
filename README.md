@@ -7,6 +7,8 @@ sdk: docker
 app_port: 6900
 fullWidth: true
 suggested_storage: small
+header: mini
+hf_oauth: true
 tags:
   - argilla
 ---
