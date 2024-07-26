@@ -5,7 +5,7 @@ FROM argilladev/argilla-hf-spaces:pr-5313
 # Copy the auth config section
 COPY .oauth.yaml /home/argilla/
 
-COPY log_config.yaml /home/argilla/
+#COPY log_config.yaml /home/argilla/
 
 #ENV UVICORN_WORKERS=5
 ENV UVICORN_LOOP=uvloop
@@ -15,7 +15,7 @@ ENV UVICORN_BACKLOG=1024
 ENV UVICORN_LIMIT_CONCURRENCY=2048
 #ENV UVICORN_TIMEOUT_KEEP_ALIVE=1
 #ENV UVICORN_TIMEOUT_GRACEFUL_SHUTDOWN=5
-ENV UVICORN_LOG_CONFIG=/home/argilla/log_config.yaml
+#ENV UVICORN_LOG_CONFIG=/home/argilla/log_config.yaml
 
 
 # old
