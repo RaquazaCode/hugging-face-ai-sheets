@@ -1,9 +1,9 @@
 # Change to `true` to enable HF auth integration
-enabled: false
+# enabled: false
 
 providers:
   - name: huggingface
 
 # Allowed workspaces must exists 
 allowed_workspaces:
-  - name: admin
+  - name: argilla
