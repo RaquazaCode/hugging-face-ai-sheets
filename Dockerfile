@@ -1,23 +1,13 @@
-FROM argilladev/argilla-hf-spaces:pr-5313
-#FROM argilla/argilla-quickstart:releases-v1.29.1
-
+FROM argilla/argilla-hf-spaces:v2.0.0
 
 # Copy the auth config section
 COPY .oauth.yaml /home/argilla/
 
-#COPY log_config.yaml /home/argilla/
-
-#ENV UVICORN_WORKERS=5
-ENV UVICORN_LOOP=uvloop
-ENV UVICORN_HTTP=httptools
-ENV UVICORN_LIFESPAN=on
-ENV UVICORN_BACKLOG=1024
-ENV UVICORN_LIMIT_CONCURRENCY=2048
-#ENV UVICORN_TIMEOUT_KEEP_ALIVE=1
-#ENV UVICORN_TIMEOUT_GRACEFUL_SHUTDOWN=5
-#ENV UVICORN_LOG_CONFIG=/home/argilla/log_config.yaml
+# Uncoment this line to remove the persistence storage warning
+#ENV ARGILLA_SHOW_HUGGINGFACE_SPACE_PERSISTENT_STORAGE_WARNING=false
 
 
+# ----------------------------------------------------------------------
 # old
 #FROM argilla/argilla-quickstart:v1.29.0
 
