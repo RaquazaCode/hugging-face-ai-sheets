@@ -12,6 +12,7 @@ hf_oauth: true
 tags:
   - argilla
 ---
+Argilla is a free and open source tool to build and iterate on data for AI. It can be deployed on the Hub with a few clicks and Hugging Face OAuth enabled, perfect for running community annotation initiatives!
 
 This is the Argilla Space for:
 
