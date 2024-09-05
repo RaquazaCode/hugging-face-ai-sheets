@@ -1,5 +1,5 @@
 # Related PR https://github.com/argilla-io/argilla/pull/5445
-FROM argilladev/argilla-hf-spaces:develop
+FROM argilladev/argilla-hf-spaces:releases-2.1.0
 
 # Copy the auth config section
 COPY .oauth.yaml /home/argilla/
