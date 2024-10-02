@@ -1,5 +1,5 @@
 # Related PR https://github.com/argilla-io/argilla/pull/5467
-FROM argilladev/argilla-hf-spaces:pr-5467
+FROM argilladev/argilla-hf-spaces:develop
 
 
 # Copy the auth config section
@@ -12,3 +12,6 @@ ENV UVICORN_LOG_CONFIG=/home/argilla/log_config.yaml
 
 # Uncoment this line to remove the persistence storage warning
 #ENV ARGILLA_SHOW_HUGGINGFACE_SPACE_PERSISTENT_STORAGE_WARNING=false
+
+
+CMD "echo $CREATOR_USER_ID"
