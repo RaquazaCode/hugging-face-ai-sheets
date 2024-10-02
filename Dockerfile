@@ -1,4 +1,3 @@
-# Related PR https://github.com/argilla-io/argilla/pull/5467
 FROM argilladev/argilla-hf-spaces:releases-2.3.0
 
 # Copy the auth config section
