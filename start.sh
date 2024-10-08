@@ -25,7 +25,7 @@ if [ ! -d /data/backups/argilla ]; then
 fi
 
 # 2. Copy the backup file to the correct location
-cp -r /data/argilla/backup/* /data/* || true
+cp -r /data/argilla/backup/* /data/argilla/* || true
 # 3. Copy all the persistent storage files to the correct location
 cp -r /data/argilla/* $ARGILLA_HOME_PATH
 
