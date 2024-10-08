@@ -34,7 +34,10 @@ console.setFormatter(
 
 _LOGGER = logging.getLogger(__name__)
 _LOGGER.setLevel(logging.INFO)
-_LOGGER.addHandler(console)
+# console.setLevel(logging.INFO)
+
+_LOGGER = logging.getLogger("backup")
+_LOGGER.handlers = [console
 
 
 def backup(src, dst):
