@@ -33,6 +33,7 @@ console.setFormatter(
 )
 
 _LOGGER = logging.getLogger(__name__)
+_LOGGER.setLevel(logging.INFO)
 _LOGGER.addHandler(console)
 
 
