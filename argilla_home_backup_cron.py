@@ -22,8 +22,7 @@ from argilla_server.database import database_url_sync
 from argilla_server.settings import settings
 from argilla_server.telemetry import get_server_id, SERVER_ID_DAT_FILE
 
-_LOGGER = logging.getLogger("backup")
-_LOGGER.setLevel(logging.INFO)
+logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO)
 
 
 def backup(src, dst):
@@ -32,9 +31,9 @@ def backup(src, dst):
 
     try:
         with src_conn, dst_conn:
-            _LOGGER.info("Creating a db backup...")
+            logging.info("Creating a db backup...")
             src_conn.backup(dst_conn)
-            _LOGGER.info("DB backup created!")
+            logging.info("DB backup created!")
     finally:
         src_conn.close()
         dst_conn.close()
@@ -55,7 +54,7 @@ def db_backup(backup_folder: str, interval: int = 15):
         try:
             backup(src=db_path, dst=backup_file)
         except Exception as e:
-            _LOGGER.error(f"Error creating backup: {e}")
+            logging.error(f"Error creating backup: {e}")
 
         time.sleep(interval)
 
@@ -69,12 +68,12 @@ def server_id_backup(backup_folder: str):
     get_server_id()
 
     server_id_file = os.path.join(settings.home_path, SERVER_ID_DAT_FILE)
-    _LOGGER.info(f"Copying server id file to {backup_folder}")
+    logging.info(f"Copying server id file to {backup_folder}")
     os.system(f"cp {server_id_file} {backup_folder}")
 
 
 if __name__ == "__main__":
-    backup_folder: str = "/data/argilla/backup"
+    backup_folder: str = "./data/argilla/backup"
 
     server_id_backup(backup_folder)
     db_backup(backup_folder)
