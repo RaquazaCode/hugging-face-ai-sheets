@@ -74,7 +74,7 @@ def server_id_backup(backup_folder: str):
 
 
 if __name__ == "__main__":
-    backup_folder: str = "./data/argilla/backup"
+    backup_folder: str = "/data/argilla/backup"
 
     server_id_backup(backup_folder)
     db_backup(backup_folder)
