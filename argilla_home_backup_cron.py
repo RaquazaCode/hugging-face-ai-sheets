@@ -22,7 +22,7 @@ from argilla_server.database import database_url_sync
 from argilla_server.settings import settings
 from argilla_server.telemetry import get_server_id, SERVER_ID_DAT_FILE
 
-_LOGGER = logging.getLogger("argilla.backup")
+_LOGGER = logging.getLogger("backup")
 _LOGGER.setLevel(logging.INFO)
 
 
@@ -32,11 +32,9 @@ def backup(src, dst):
 
     try:
         with src_conn, dst_conn:
-            #_LOGGER.info("Creating a db backup...")
-            print("Creating a db backup...")
+            _LOGGER.info("Creating a db backup...")
             src_conn.backup(dst_conn)
-            print("DB backup created!")
-            #_LOGGER.info("DB backup created!")
+            _LOGGER.info("DB backup created!")
     finally:
         src_conn.close()
         dst_conn.close()
