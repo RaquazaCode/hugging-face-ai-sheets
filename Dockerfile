@@ -1,4 +1,5 @@
-FROM argilladev/argilla-hf-spaces:pr-5585
+#FROM argilladev/argilla-hf-spaces:pr-5585
+FROM argilla/argilla-hf-spaces:latest
 
 # Copy the auth config section
 COPY .oauth.yaml /home/argilla/
