@@ -25,7 +25,7 @@ from argilla_server.telemetry import get_server_id, SERVER_ID_DAT_FILE
 console = logging.StreamHandler()
 console.setFormatter(logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s"))
 
-logging.basicConfig(handlers=[console], level=logging.INFO)
+logging.basicConfig(handlers=[console], level=logging.INFO, force=True)
 
 _LOGGER = logging.getLogger("backup")
 _LOGGER.setLevel(logging.INFO)
