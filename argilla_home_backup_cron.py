@@ -34,7 +34,7 @@ console.setFormatter(
 
 _LOGGER = logging.getLogger(__name__)
 _LOGGER.setLevel(logging.INFO)
-# console.setLevel(logging.INFO)
+console.setLevel(logging.INFO)
 
 _LOGGER = logging.getLogger("backup")
 _LOGGER.handlers = [console]
