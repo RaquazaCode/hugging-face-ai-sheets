@@ -32,9 +32,11 @@ def backup(src, dst):
 
     try:
         with src_conn, dst_conn:
-            _LOGGER.info("Creating a db backup...")
+            #_LOGGER.info("Creating a db backup...")
+            print("Creating a db backup...")
             src_conn.backup(dst_conn)
-            _LOGGER.info("DB backup created!")
+            print("DB backup created!")
+            #_LOGGER.info("DB backup created!")
     finally:
         src_conn.close()
         dst_conn.close()
