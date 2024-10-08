@@ -18,16 +18,8 @@ import time
 from pathlib import Path
 from urllib.parse import urlparse
 
-from argilla_server.database import database_url_sync
-from argilla_server.settings import settings
-from argilla_server.telemetry import get_server_id, SERVER_ID_DAT_FILE
-
 _LOGGER = logging.getLogger("backup")
 _LOGGER.setLevel(logging.INFO)
-
-
-print(_LOGGER.handlers)
-
 
 def backup(src, dst):
     src_conn = sqlite3.connect(src, isolation_level="DEFERRED")
@@ -44,6 +36,8 @@ def backup(src, dst):
 
 
 def db_backup(backup_folder: str, interval: int = 15):
+    from argilla_server.database import database_url_sync
+
     url_db = database_url_sync()
     db_path = Path(urlparse(url_db).path)
 
@@ -64,6 +58,9 @@ def db_backup(backup_folder: str, interval: int = 15):
 
 
 def server_id_backup(backup_folder: str):
+    from argilla_server.settings import settings
+    from argilla_server.telemetry import get_server_id, SERVER_ID_DAT_FILE
+
     backup_path = Path(backup_folder).absolute()
     if not backup_path.exists():
         backup_path.mkdir()
@@ -80,6 +77,5 @@ def server_id_backup(backup_folder: str):
 
 if __name__ == "__main__":
     backup_folder: str = "/data/argilla/backup"
-
     server_id_backup(backup_folder)
     db_backup(backup_folder)
