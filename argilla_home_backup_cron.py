@@ -37,7 +37,7 @@ _LOGGER.setLevel(logging.INFO)
 # console.setLevel(logging.INFO)
 
 _LOGGER = logging.getLogger("backup")
-_LOGGER.handlers = [console
+_LOGGER.handlers = [console]
 
 
 def backup(src, dst):
