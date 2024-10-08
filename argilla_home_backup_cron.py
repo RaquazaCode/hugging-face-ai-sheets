@@ -22,13 +22,14 @@ from argilla_server.database import database_url_sync
 from argilla_server.settings import settings
 from argilla_server.telemetry import get_server_id, SERVER_ID_DAT_FILE
 
-console = logging.StreamHandler()
-console.setFormatter(logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s"))
+logging.basicConfig(
+    handlers=[logging.StreamHandler()],
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    level=logging.INFO,
+    force=True,
+)
 
-logging.basicConfig(handlers=[console], level=logging.INFO, force=True)
-
-_LOGGER = logging.getLogger("backup")
-_LOGGER.setLevel(logging.INFO)
+_LOGGER = logging.getLogger("argilla.backup")
 
 
 def backup(src, dst):
