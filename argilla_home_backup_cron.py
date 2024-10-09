@@ -39,12 +39,12 @@ def _run_backup(src: Path, dst_folder: str):
     dst_conn = sqlite3.connect(backup_file, isolation_level="DEFERRED")
 
     try:
+        _LOGGER.info("Creating a db backup...")
         with src_conn, dst_conn:
-            _LOGGER.info("Creating a db backup...")
             src_conn.backup(dst_conn, pages=10)
-            _LOGGER.info("DB backup created!")
         # Move the .bak file to the .db file
         os.system(f"mv {backup_file} {backup_file.removesuffix('.bak')}")
+        _LOGGER.info("DB backup created!")
     finally:
         src_conn.close()
         dst_conn.close()
