@@ -32,15 +32,19 @@ logging.basicConfig(
 _LOGGER = logging.getLogger("argilla.backup")
 
 
-def _run_backup(src, dst):
+def _run_backup(src: Path, dst_folder: str):
+    backup_file = os.path.join(dst_folder, src.name + ".bak")
+
     src_conn = sqlite3.connect(src, isolation_level="DEFERRED")
-    dst_conn = sqlite3.connect(dst, isolation_level="DEFERRED")
+    dst_conn = sqlite3.connect(backup_file, isolation_level="DEFERRED")
 
     try:
         with src_conn, dst_conn:
             _LOGGER.info("Creating a db backup...")
-            src_conn.backup(dst_conn, pages=5)
+            src_conn.backup(dst_conn, pages=10)
             _LOGGER.info("DB backup created!")
+        # Move the .bak file to the .db file
+        os.system(f"mv {backup_file} {backup_file.removesuffix('.bak')}")
     finally:
         src_conn.close()
         dst_conn.close()
@@ -55,11 +59,9 @@ def db_backup(backup_folder: str, interval: int = 15):
     if not backup_path.exists():
         backup_path.mkdir()
 
-    backup_file = os.path.join(backup_path, db_path.name)
-
     while True:
         try:
-            _run_backup(src=db_path, dst=backup_file)
+            _run_backup(src=db_path, dst_folder=backup_path)
         except Exception as e:
             _LOGGER.exception(f"Error creating backup: {e}")
 
