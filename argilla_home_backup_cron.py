@@ -18,6 +18,9 @@ import time
 from pathlib import Path
 from urllib.parse import urlparse
 
+import httpx
+from urllib3.util import wait_for_write
+
 from argilla_server.database import database_url_sync
 from argilla_server.settings import settings
 from argilla_server.telemetry import get_server_id, SERVER_ID_DAT_FILE
@@ -88,10 +91,25 @@ def server_id_backup(backup_folder: str):
     _LOGGER.info("Server id file copied!")
 
 
+def is_argilla_alive():
+    try:
+        with httpx.Client() as client:
+            response = client.get("http://localhost:6900/api/v1/status'")
+            response.raise_for_status()
+        return True
+    except Exception as e:
+        _LOGGER.exception(f"Error checking if argilla is alive: {e}")
+        return False
+
+
 if __name__ == "__main__":
     backup_folder: str = "/data/argilla/backup"
 
     backup_interval = int(os.getenv("ARGILLA_BACKUP_INTERVAL") or "15")
+
+    while not is_argilla_alive():
+        _LOGGER.info("Waiting for the server to be ready...")
+        time.sleep(5)
 
     server_id_backup(backup_folder)
     db_backup(backup_folder, interval=backup_interval)
