@@ -19,7 +19,6 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 import httpx
-from urllib3.util import wait_for_write
 
 from argilla_server.database import database_url_sync
 from argilla_server.settings import settings
@@ -35,30 +34,28 @@ logging.basicConfig(
 _LOGGER = logging.getLogger("argilla.backup")
 
 
-def _run_backup(src: Path, dst_folder: str):
-    bak_folder = Path(dst_folder) / "bak"
+def _run_backup(src: Path, dst_folder: Path, backup_id: int):
+    backup_folder = Path(dst_folder) / f"backup.{backup_id}"
 
     # Creating a copy of existing backup
-    os.system(f"rm -rf {bak_folder}/")
-    bak_folder.mkdir(exist_ok=True)
-    os.system(f"mv {os.path.join(dst_folder, src.name)}* {bak_folder}/")
+    backup_folder.mkdir(exist_ok=True)
 
-    backup_file = os.path.join(dst_folder, src.name)
+    backup_file = os.path.join(backup_folder, src.name)
 
     src_conn = sqlite3.connect(src, isolation_level="DEFERRED")
     dst_conn = sqlite3.connect(backup_file, isolation_level="DEFERRED")
 
     try:
-        _LOGGER.info("Creating a db backup...")
+        _LOGGER.info("Creating a db backup in %s", backup_file)
         with src_conn, dst_conn:
             src_conn.backup(dst_conn)
-        _LOGGER.info("DB backup created!")
+        _LOGGER.info("DB backup created at %s", backup_file)
     finally:
         src_conn.close()
         dst_conn.close()
 
 
-def db_backup(backup_folder: str, interval: int = 15):
+def db_backup(backup_folder: str, interval: int = 15, num_of_backups: int = 20):
     url_db = database_url_sync()
     db_path = Path(urlparse(url_db).path)
 
@@ -67,9 +64,11 @@ def db_backup(backup_folder: str, interval: int = 15):
     if not backup_path.exists():
         backup_path.mkdir()
 
+    backup_id = 0
     while True:
         try:
-            _run_backup(src=db_path, dst_folder=backup_path)
+            _run_backup(src=db_path, dst_folder=backup_path, backup_id=backup_id)
+            backup_id =  (backup_id + 1) % num_of_backups
         except Exception as e:
             _LOGGER.exception(f"Error creating backup: {e}")
 
@@ -103,7 +102,7 @@ def is_argilla_alive():
 
 
 if __name__ == "__main__":
-    backup_folder: str = "/data/argilla/backup"
+    backup_folder: str = "/data/argilla"
 
     backup_interval = int(os.getenv("ARGILLA_BACKUP_INTERVAL") or "15")
 
