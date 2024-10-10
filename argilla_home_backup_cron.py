@@ -94,7 +94,7 @@ def server_id_backup(backup_folder: str):
 def is_argilla_alive():
     try:
         with httpx.Client() as client:
-            response = client.get("http://localhost:6900/api/v1/status'")
+            response = client.get("http://localhost:6900/api/v1/status")
             response.raise_for_status()
         return True
     except Exception as e:
