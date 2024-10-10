@@ -35,7 +35,7 @@ _LOGGER = logging.getLogger("argilla.backup")
 
 
 def _run_backup(src: Path, dst_folder: Path, backup_id: int):
-    backup_folder = Path(dst_folder) / f"backup.{backup_id}"
+    backup_folder = Path(dst_folder) / str(backup_id)
 
     # Creating a copy of existing backup
     backup_folder.mkdir(exist_ok=True)
@@ -102,7 +102,7 @@ def is_argilla_alive():
 
 
 if __name__ == "__main__":
-    backup_folder: str = "/data/argilla"
+    argilla_data: str = "/data/argilla"
 
     backup_interval = int(os.getenv("ARGILLA_BACKUP_INTERVAL") or "15")
 
@@ -110,5 +110,5 @@ if __name__ == "__main__":
         _LOGGER.info("Waiting for the server to be ready...")
         time.sleep(5)
 
-    server_id_backup(backup_folder)
-    db_backup(backup_folder, interval=backup_interval)
+    server_id_backup(argilla_data)
+    db_backup(argilla_data + "/backups", interval=backup_interval)
