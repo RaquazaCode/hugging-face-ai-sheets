@@ -37,7 +37,7 @@ if __name__ == "__main__":
         safe_backup = folders[1]
 
         _LOGGER.info("Copying the second most recent backup to the argilla home folder")
-        os.listdir(os.getenv("ARGILLA_HOME_PATH"))
-        os.system(f"cp -r {safe_backup}/* $ARGILLA_HOME_PATH")
-        os.listdir(os.getenv("ARGILLA_HOME_PATH"))
+        _LOGGER.info(os.listdir(os.getenv("ARGILLA_HOME_PATH")))
+        _LOGGER.info(os.system(f"cp -r {safe_backup}/* $ARGILLA_HOME_PATH"))
+        _LOGGER.info(os.listdir(os.getenv("ARGILLA_HOME_PATH")))
         _LOGGER.info("Backup restored!")
