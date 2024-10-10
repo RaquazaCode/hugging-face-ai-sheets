@@ -26,10 +26,12 @@ logging.basicConfig(
 _LOGGER = logging.getLogger("argilla.backup")
 
 if __name__ == "__main__":
-    backup_folder: str = "/data/argilla/backups"
+    backup_folder: str = "/data/argilla/backups/*"
 
-    folders = glob.glob(str(Path(backup_folder) / ".*"))
+    folders = glob.glob(backup_folder)
     folders.sort(key=os.path.getmtime, reverse=True)
+
+    print(folders)
 
     if len(folders) > 1:
         safe_backup = folders[1]
