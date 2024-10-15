@@ -3,7 +3,6 @@ FROM argilladev/argilla-hf-spaces:pr-5591
 
 COPY . /home/argilla/
 
-
 ENV UVICORN_LOG_CONFIG=/home/argilla/log_config.yaml
 
 # Uncoment this line to remove the persistence storage warning
