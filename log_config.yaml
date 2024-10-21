@@ -31,6 +31,11 @@ loggers:
         handlers: [file]
         propagate: no
 
+    sqlalchemy:
+        level: DEBUG
+        handlers: [console]
+        propagate: no
+
 root:
     level: INFO
     handlers: [console]
