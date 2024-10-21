@@ -4,6 +4,7 @@ FROM argilladev/argilla-hf-spaces:pr-5596
 COPY . /home/argilla/
 
 
+
 ENV UVICORN_LOG_CONFIG=/home/argilla/log_config.yaml
 
 ENV ARGILLA_DATABASE_SQLITE_TIMEOUT=15
