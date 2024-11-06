@@ -1,4 +1,4 @@
-FROM argilladev/argilla-hf-spaces:pr-5666
+FROM argilladev/argilla-hf-spaces:pr-5670
 # FROM argilla/argilla-hf-spaces:latest
 
 COPY . /home/argilla/
