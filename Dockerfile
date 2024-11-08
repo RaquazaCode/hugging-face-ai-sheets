@@ -1,6 +1,7 @@
 FROM argilladev/argilla-hf-spaces:pr-5670
 # FROM argilla/argilla-hf-spaces:latest
 
+
 COPY . /home/argilla/
 
 ENV UVICORN_LOG_CONFIG=/home/argilla/log_config.yaml
