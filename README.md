@@ -10,6 +10,8 @@ suggested_storage: small
 header: mini
 hf_oauth: true
 hf_oauth_scopes:
+- read-repos
+- write-repos
 - inference-api
 ---
 
