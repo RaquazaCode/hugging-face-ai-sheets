@@ -6,3 +6,5 @@ RUN useradd -ms /bin/bash admin && \
  chmod -R 777 /usr/src/app/data
 
 USER admin
+
+ENV INFERENCE_PROVIDER=sambanova
