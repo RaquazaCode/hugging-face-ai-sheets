@@ -5,6 +5,7 @@ RUN useradd -ms /bin/bash admin && \
  chown -R admin:admin /usr/src/app/data && \
  chmod -R 777 /usr/src/app/data
 
+
 USER admin
 
 ENV INFERENCE_PROVIDER=sambanova
