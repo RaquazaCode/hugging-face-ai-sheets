@@ -1,6 +1,9 @@
 FROM argilladev/synt-generator:latest
 
-VOLUME /data
+RUN useradd -ms /bin/bash admin \
+ && chown -R admin:admin /usr/src/app \
+ && chmod -R 777 /usr/src/app
 
-ENV DATA_DIR=/data
+USER admin
+
 ENV INFERENCE_PROVIDER=sambanova
