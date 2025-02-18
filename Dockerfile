@@ -1,4 +1,4 @@
-FROM argilladev/synt-generator:latestsdf
+FROM argilladev/synt-generator:latest
 
 RUN useradd -ms /bin/bash admin \
  && chown -R admin:admin /usr/src/app \
