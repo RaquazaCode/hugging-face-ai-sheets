@@ -6,5 +6,4 @@ RUN useradd -ms /bin/bash admin \
 
 USER admin
 
-
 ENV INFERENCE_PROVIDER=sambanova
