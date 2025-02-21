@@ -5,3 +5,4 @@ RUN useradd -ms /bin/bash admin \
  && chmod -R 777 /usr/src/app
 
 USER admin
+
