@@ -1,5 +1,5 @@
 ---
-title: Synt dataset generator Space
+title: Dataground
 emoji: ✍✍✍
 colorFrom: pink
 colorTo: pink
