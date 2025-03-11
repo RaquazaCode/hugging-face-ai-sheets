@@ -1,4 +1,4 @@
-FROM argilladev/dataground:latest
+FROM argilladev/dataground:download
 
 RUN useradd -ms /bin/bash admin \
  && chown -R admin:admin /usr/src/app \
