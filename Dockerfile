@@ -1,4 +1,4 @@
-FROM argilladev/dataground-dev:main
+FROM huggingfacedg/dataground-dev:main
 
 RUN useradd -ms /bin/bash admin \
  && chown -R admin:admin /usr/src/app \
