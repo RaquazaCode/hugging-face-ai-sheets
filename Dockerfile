@@ -1,4 +1,4 @@
-FROM huggingfacedg/dataground-dev:main
+FROM huggingfacedg/dataground-dev:cookies
 
 RUN useradd -ms /bin/bash admin \
  && chown -R admin:admin /usr/src/app \
