@@ -1,4 +1,4 @@
-FROM huggingfacedg/dataground:v0.1.0
+FROM huggingfacedg/dataground-dev:main
 
 # Set data dir under persisted volume (if enabled)
 ENV DATA_DIR /data/dataground
