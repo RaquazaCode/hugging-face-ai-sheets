@@ -6,7 +6,6 @@ ENV DATA_DIR /data/dataground
 # Configure HF cache to the persisted volume
 ENV HF_HOME /data/hf_cache
 
-
 # Available environment variables
 #
 # Uncomment the next line if you want to change the default timeout when requesting inference client (Default: 90 seconds)
