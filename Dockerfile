@@ -1,7 +1,7 @@
-FROM huggingfacedg/dataground-dev:main
+FROM huggingfacedg/sheets-dev:main
 
 # Set data dir under persisted volume (if enabled)
-ENV DATA_DIR /data/dataground
+ENV DATA_DIR /data/sheets
 
 # Configure HF cache to the persisted volume
 ENV HF_HOME /data/hf_cache
