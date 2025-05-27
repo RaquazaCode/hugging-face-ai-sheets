@@ -1,5 +1,5 @@
 ---
-title: AISheets
+title: Sheets
 emoji: 🗂️
 colorFrom: pink
 colorTo: pink
